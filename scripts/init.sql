@@ -8,4 +8,9 @@ CREATE TABLE myScheme.Student (
   Age        INT         NOT NULL
 );
 INSERT INTO myScheme.Student (First_Name, Last_Name, Class, RollNo, Age) VALUES ('Olya', 'Pyst', '11A', '4s584ds', 15);
-COMMIT
+CREATE TABLE myScheme.Subject (
+  Subject_Id SERIAL PRIMARY KEY,
+  Subject_Name VARCHAR(50)
+);
+INSERT INTO myScheme.Subject (Subject_Name) VALUES ('Math');
+COMMIT 

@@ -1,3 +1,5 @@
+import java.util.Set;
+
 public class Student {
 	private int studentId;
 	private String firstName;
@@ -5,8 +7,18 @@ public class Student {
 	private String className;
 	private String rollNo;
 	private int age;
-
+	private Set subjects;
+	
 	public Student() {
+	}
+
+	public Student(String firstName, String lastName,
+			String className, String rollNo, int age){
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.className = className;
+		this.rollNo = rollNo;
+		this.age = age;
 	}
 
 	public int getStudentId() {
@@ -55,5 +67,12 @@ public class Student {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+	public Set getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(Set subjects) {
+		this.subjects = subjects;
 	}
 }

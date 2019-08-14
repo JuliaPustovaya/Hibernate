@@ -28,7 +28,7 @@
 		</property>
 
 		<mapping resource="student.hbm.xml"/>
-
+		<mapping resource="subject.hbm.xml"/>
 	</session-factory>
 
 </hibernate-configuration>
