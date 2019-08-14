@@ -27,7 +27,7 @@
 			true
 		</property>
 
-		<mapping resource="student.hbm.xml"/>
+		<mapping class="Student"/>
 
 	</session-factory>
 

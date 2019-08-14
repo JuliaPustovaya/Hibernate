@@ -5,11 +5,11 @@ import org.hibernate.Transaction;
 public class HibernateTest {
 	public static void main(String args[]) {
 		Student student = new Student();
-		student.setFirstName("Vivek");
+		student.setFirstName("Polina");
 		student.setLastName("Solenki");
 		student.setClassName("MCA final");
 		student.setRollNo("MCA/07/70");
-		student.setAge(27);
+		student.setAge(37);
 		Transaction tx = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {

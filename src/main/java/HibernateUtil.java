@@ -1,5 +1,5 @@
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 public class HibernateUtil {
 	private static final SessionFactory sessionFactory =
@@ -8,13 +8,8 @@ public class HibernateUtil {
 	private static SessionFactory buildSessionFactory() {
 		SessionFactory sessionFactory = null;
 		try {
-			//Create the configuration object.
-			Configuration configuration = new Configuration();
-			//Initialize the configuration object
-			//with the configuration file data
-			configuration.configure("hibernate.cfg.xml");
-			// Get the SessionFactory object from configuration.
-			sessionFactory = configuration.buildSessionFactory();
+			return new AnnotationConfiguration().configure()
+					.buildSessionFactory();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
