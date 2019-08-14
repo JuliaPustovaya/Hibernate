@@ -1,6 +1,11 @@
 CREATE SCHEMA myScheme;
-CREATE TABLE myScheme.account(
-  user_id serial PRIMARY KEY,
-  username VARCHAR (50) UNIQUE NOT NULL,
-  password VARCHAR (50) NOT NULL
+CREATE TABLE myScheme.Student (
+  Student_Id SERIAL PRIMARY KEY,
+  First_Name VARCHAR(50) NOT NULL,
+  Last_Name  VARCHAR(50) NOT NULL,
+  Class      VARCHAR(50) NOT NULL,
+  RollNo     VARCHAR(50) NOT NULL,
+  Age        INT         NOT NULL
 );
+INSERT INTO myScheme.Student (First_Name, Last_Name, Class, RollNo, Age) VALUES ('Olya', 'Pyst', '11A', '4s584ds', 15);
+COMMIT
