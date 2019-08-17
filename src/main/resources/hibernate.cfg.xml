@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE hibernate-configuration SYSTEM
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-
 <hibernate-configuration>
 
 	<session-factory>
@@ -27,7 +26,8 @@
 			true
 		</property>
 
-		<mapping class="Student"/>
+		<mapping resource="Student.hbm.xml"/>
+		<mapping resource="StudentInformation.hbm.xml"/>
 
 	</session-factory>
 

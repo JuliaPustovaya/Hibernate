@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Student" table="myScheme.STUDENT">
+        <id name="studentId" type="java.lang.Integer">
+            <column name="STUDENT_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="studentName" type="string">
+            <column name="STUDENT_NAME"/>
+        </property>
+        <property name="studentAge" type="string">
+            <column name="STUDENT_Age"/>
+        </property>
+        <one-to-one name="studentInfo" class="StudentInformation" cascade="save-update">
+            <meta attribute="where we describe that the studentInfo attribute of the class has a one-to-one relationship with StudentInformation.
+            We also state that when the student table is updated, the update should be cascaded to student_information table."/>
+        </one-to-one>
+    </class>
+</hibernate-mapping>
+
+

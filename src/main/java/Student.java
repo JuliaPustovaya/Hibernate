@@ -1,76 +1,53 @@
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class Student implements java.io.Serializable {
 
-@Entity
-@Table(name = "myScheme.Student")
-public class Student {
-	private int studentId;
-	private String firstName;
-	private String lastName;
-	private String className;
-	private String rollNo;
-	private int age;
+    private static final long serialVersionUID = 1L;
 
-	public Student() {
-	}
+    private Integer studentId;
+    private String studentName;
+    private String studentAge;
+    private StudentInformation studentInfo;
 
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	@Column(name = "Student_Id", unique = true, nullable = false)
-	public int getStudentId() {
-		return studentId;
-	}
+    public Student() {
+    }
 
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
+    public Student(String studentName, String studentAge) {
+        this.studentName = studentName;
+        this.studentAge = studentAge;
+    }
 
-	@Column(name = "First_Name")
-	public String getFirstName() {
-		return firstName;
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public Integer getStudentId() {
+        return this.studentId;
+    }
 
-	@Column(name = "Last_Name")
-	public String getLastName() {
-		return lastName;
-	}
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getStudentName() {
+        return this.studentName;
+    }
 
-	@Column(name = "Class")
-	public String getClassName() {
-		return className;
-	}
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
-	public void setClassName(String className) {
-		this.className = className;
-	}
+    public String getStudentAge() {
+        return this.studentAge;
+    }
 
-	@Column(name = "RollNo")
-	public String getRollNo() {
-		return rollNo;
-	}
+    public void setStudentAge(String studentAge) {
+        this.studentAge = studentAge;
+    }
 
-	public void setRollNo(String rollNo) {
-		this.rollNo = rollNo;
-	}
+    public StudentInformation getStudentInfo() {
+        return studentInfo;
+    }
 
-	@Column(name = "Age")
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public void setStudentInfo(StudentInformation studentInfo) {
+        this.studentInfo = studentInfo;
+    }
 }
