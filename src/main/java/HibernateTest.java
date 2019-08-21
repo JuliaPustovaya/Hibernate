@@ -1,10 +1,15 @@
+
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+
 
 public class HibernateTest {
     public static void main(String args[]) {
+
+        // builds a session factory from the service registry
+
+        // obtains the session
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
+        session.beginTransaction();
         Employee employee = new Employee();
 
         //Set value to Employee class properties
@@ -20,7 +25,7 @@ public class HibernateTest {
 
         //Persist the department object
         session.save(department);
-        tx.commit();
+        session.getTransaction().commit();
         System.out.println("Great! Student was saved");
         session.close();
 

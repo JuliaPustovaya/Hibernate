@@ -1,8 +1,29 @@
-public class Department {
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import org.hibernate.annotations.Entity;
+@Entity
+@Table(name =  "myScheme.Department")
+public class Department implements Serializable {
+	@Id
+	@GeneratedValue
+	@Column(name = "DEP_ID")
 	private int dep_id;
+
+	@Column(name = "DEP_NAME", length = 50, nullable = false)
 	private String dep_name;
+
+	@Column(name = "DESIGNATION")
 	private String designation;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "EMP_ID")
 	private Employee employee;
 
 	public Department() {

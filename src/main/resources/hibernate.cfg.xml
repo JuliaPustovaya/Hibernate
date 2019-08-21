@@ -26,8 +26,8 @@
 			true
 		</property>
 
-		<mapping resource="employee.hbm.xml" />
-		<mapping resource="department.hbm.xml" />
+		<mapping class="Employee"/>
+		<mapping class="Department"/>
 	</session-factory>
 
 </hibernate-configuration>
