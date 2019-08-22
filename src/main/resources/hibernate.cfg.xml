@@ -26,8 +26,8 @@
 			true
 		</property>
 
-		<mapping class="Employee"/>
-		<mapping class="Department"/>
+		<mapping class="data.Department"/>
+		<mapping class="data.Employee"/>
 	</session-factory>
 
 </hibernate-configuration>

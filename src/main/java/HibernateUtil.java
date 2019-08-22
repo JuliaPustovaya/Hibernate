@@ -1,21 +1,29 @@
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+import data.Department;
+import data.Employee;
 
 public class HibernateUtil {
-	private static final SessionFactory sessionFactory =
-			buildSessionFactory();
+	private static final SessionFactory sessionFactory;
+	private static final ServiceRegistry serviceRegistry;
 
-	private static SessionFactory buildSessionFactory() {
-		SessionFactory sessionFactory = null;
+	static {
 		try {
-			return new AnnotationConfiguration().configure()
-					.buildSessionFactory();
+			Configuration configuration = new Configuration();
+			configuration.configure("hibernate.cfg.xml");
+
+			configuration.addAnnotatedClass(Department.class);
+			configuration.addAnnotatedClass(Employee.class);
+
+			serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		} catch (Throwable ex) {
+			System.err.println("Session Factory could not be created." + ex);
+			throw new ExceptionInInitializerError(ex);
 		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return sessionFactory;
 	}
 
 	public static SessionFactory getSessionFactory() {

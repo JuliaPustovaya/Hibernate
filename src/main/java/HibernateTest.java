@@ -1,33 +1,22 @@
-
 import org.hibernate.Session;
 
+import data.Department;
+import data.Employee;
 
 public class HibernateTest {
-    public static void main(String args[]) {
+	public static void main(String args[]) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		Employee e = new Employee();
+		e.setName("Vadya");
 
-        // builds a session factory from the service registry
+		Department d = new Department();
+		d.setDep_name("ISD");
+		d.setEmployee(e);
 
-        // obtains the session
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        Employee employee = new Employee();
-
-        //Set value to Employee class properties
-        employee.setAge(102);
-        employee.setName("JIP");
-
-        //Create Department object
-        Department  department = new Department();
-
-        department.setDep_name("Manufacturing");
-        department.setDesignation("Manufacturing Engineer");
-        department.setEmployee(employee);
-
-        //Persist the department object
-        session.save(department);
-        session.getTransaction().commit();
-        System.out.println("Great! Student was saved");
-        session.close();
-
-    }
+		session.save(d);
+		session.getTransaction().commit();
+		session.close();
+	}
 }
+
